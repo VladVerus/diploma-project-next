@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 
 import type { AppProps } from "next/app";
+import Layout from "./components/Layout";
 import createEmotionCache from "../utility/createEmotionCache";
 import lightThemeOptions from "../styles/theme/lightThemeOptions";
 
@@ -41,7 +42,9 @@ const MyApp: React.FunctionComponent<MyAppProps> = (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </CacheProvider>
   );
